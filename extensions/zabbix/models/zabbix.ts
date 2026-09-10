@@ -423,8 +423,8 @@ export const model = {
           params.groupids = args.groupIds;
         }
         if (args.search) {
+          // No searchWildcardsEnabled: it would make a term without "*" exact.
           params.search = { name: args.search };
-          params.searchWildcardsEnabled = true;
         }
 
         const result = await zabbixRpc(
@@ -884,8 +884,8 @@ export const model = {
           sortfield: "name",
         };
         if (args.search) {
+          // No searchWildcardsEnabled: it would make a term without "*" exact.
           params.search = { name: args.search };
-          params.searchWildcardsEnabled = true;
         }
 
         const result = await zabbixRpc(
